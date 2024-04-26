@@ -256,6 +256,7 @@ class CodeBuildStack(Stack):
         # Grants CodeBuild project access to pull/push from s3
         s3_bucket.grant_read_write(codebuild_jar)
         s3_bucket.grant_read_write(codebuild_joern)
+        s3_bucket.grant_read_write(codebuild_webgoat_deploy)
 
         CfnOutput(self, "WebGoatBuildProjectName", value=codebuild_jar.project_name)
         CfnOutput(self, "JoernScanProjectName", value=codebuild_joern.project_name)
